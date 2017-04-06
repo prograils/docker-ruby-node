@@ -6,7 +6,8 @@ RUN apt-get -y upgrade
 
 RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
                libreadline6-dev libyaml-dev git-core \
-               libcurl4-openssl-dev
+               libcurl4-openssl-dev libpq-dev libmysqlclient-dev libxslt-dev \
+               libsqlite3-dev libmagickwand-dev imagemagick
 
 # Install node
 ENV NODEJS_DOWNLOAD_SHA256 2c7a643b199c63390f4e33359e82f1449b84ec94d647c606fc0f1d1a2b5bdedd
@@ -25,8 +26,6 @@ RUN \
   rm -rf /tmp/node-v* && \
   echo -e '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
-# Common ruby/gems dependencies
-RUN apt-get -y install libpq-dev libmysqlclient-dev libxslt-dev libsqlite3-dev libmagickwand-dev imagemagick
 
 ENV RUBY_DOWNLOAD_SHA256 b87c738cb2032bf4920fef8e3864dc5cf8eae9d89d8d523ce0236945c5797dcd
 ADD https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz /tmp/
