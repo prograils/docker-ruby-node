@@ -1,6 +1,6 @@
 # prograils/ruby-node:latest
 
-Starting point for running Rails specs - includes lastest stable ruby and
+Starting point for running Rails specs - includes ruby 2.4.1 and
 node 6.10.1
 
 ## What's inside
@@ -13,13 +13,13 @@ with ruby and nodejs.
 ### Getting the image
 
 ```
-$ docker pull prograils/ruby-node
+$ docker pull prograils/ruby-node:2.4.1
 ```
 
 ### Running
 
 ```
-$ docker run -t -i prograils/ruby-node
+$ docker run -t -i prograils/ruby-node:2.4.1
 ```
 
 ### Testing
