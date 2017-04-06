@@ -28,21 +28,21 @@ RUN \
 # Common ruby/gems dependencies
 RUN apt-get -y install libpq-dev libmysqlclient-dev libxslt-dev libsqlite3-dev libmagickwand-dev imagemagick
 
-ENV RUBY_DOWNLOAD_SHA256 a330e10d5cb5e53b3a0078326c5731888bb55e32c4abfeb27d9e7f8e5d000250
-ADD https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 241408c8c555b258846368830a06146e4849a1d58dcaf6b14a3b6a73058115b7
+ADD https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.4.1.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-2.4.1.tar.gz && \
-  cd ruby-2.4.1 && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.3.3.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-2.3.3.tar.gz && \
+  cd ruby-2.3.3 && \
   ./configure && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-2.4.1 && \
-  rm -f ruby-2.4.1.tar.gz
+  rm -rf ruby-2.3.3 && \
+  rm -f ruby-2.3.3.tar.gz
 
 RUN gem install bundler --no-ri --no-rdoc
 
