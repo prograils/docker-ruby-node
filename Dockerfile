@@ -28,20 +28,20 @@ RUN \
 
 RUN npm install -g -g yarn
 
-ENV RUBY_DOWNLOAD_SHA256 46e6f3630f1888eb653b15fa811d77b5b1df6fd7a3af436b343cfe4f4503f2ab
-ADD https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1
+ADD https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.5.0.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-2.5.0.tar.gz && \
-  cd ruby-2.5.0 && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.5.1.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-2.5.1.tar.gz && \
+  cd ruby-2.5.1 && \
   ./configure && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-2.5.0 && \
-  rm -f ruby-2.5.0.tar.gz
+  rm -rf ruby-2.5.1 && \
+  rm -f ruby-2.5.1.tar.gz
 
 RUN gem install bundler --no-ri --no-rdoc
