@@ -26,20 +26,20 @@ RUN \
   rm -rf /tmp/node-v* && \
   echo -e '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
-ENV RUBY_DOWNLOAD_SHA256 fd0375582c92045aa7d31854e724471fb469e11a4b08ff334d39052ccaaa3a98
-ADD https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.3.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 254f1c1a79e4cc814d1e7320bc5bdd995dc57e08727d30a767664619a9c8ae5a
+ADD https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.4.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.4.3.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-2.4.3.tar.gz && \
-  cd ruby-2.4.3 && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.4.4.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-2.4.4.tar.gz && \
+  cd ruby-2.4.4 && \
   ./configure && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-2.4.3 && \
-  rm -f ruby-2.4.3.tar.gz
+  rm -rf ruby-2.4.4 && \
+  rm -f ruby-2.4.4.tar.gz
 
 RUN gem install bundler --no-ri --no-rdoc
