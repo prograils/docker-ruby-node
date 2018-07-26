@@ -25,7 +25,6 @@ describe 'Dockerfile' do
     expect(os_version).to include('Ubuntu 16.04')
   end
 
-  #
   %w(git-core).each do |p|
     it "installs package #{p}" do
       expect(package(p)).to be_installed
@@ -33,15 +32,11 @@ describe 'Dockerfile' do
   end
 
   describe command('ruby -v') do
-    its(:stdout) { should match(/2\.4\.1p111/) }
+    its(:stdout) { should match(/2\.5\.1/) }
   end
 
   describe command('node -v') do
     its(:stdout) { should match(/6\.10\.1/) }
-  end
-
-  describe command('npm -v') do
-    its(:stdout) { should match(/3\.10\.10/) }
   end
 
   def os_version
