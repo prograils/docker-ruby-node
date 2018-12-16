@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Maciej Litwiniuk <maciej@litwiniuk.net>
 
 RUN apt-get update
@@ -7,7 +7,8 @@ RUN apt-get -y upgrade
 RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
                libreadline6-dev libyaml-dev git-core \
                libcurl4-openssl-dev libpq-dev libmysqlclient-dev libxslt-dev \
-               libsqlite3-dev libmagickwand-dev imagemagick
+               libsqlite3-dev libmagickwand-dev imagemagick \
+			   python apt-utils
 
 # Install node
 ENV NODEJS_DOWNLOAD_SHA256 5b8a55d829d951d2a5ccefd4ffe4f9154673ebc621fd6c676bea09bba95cf96b
