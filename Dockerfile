@@ -20,8 +20,8 @@ RUN \
   rm -f node-v10.14.2.tar.gz && \
   cd node-v* && \
   ./configure && \
-  CXX="g++ -Wno-unused-local-typedefs" make && \
-  CXX="g++ -Wno-unused-local-typedefs" make install && \
+  make && \
+  make install && \
   cd /tmp && \
   rm -rf /tmp/node-v* && \
   echo -e '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
