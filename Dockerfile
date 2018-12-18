@@ -5,27 +5,15 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
-               libreadline6-dev libyaml-dev git-core \
+               libreadline6-dev libyaml-dev git \
                libcurl4-openssl-dev libpq-dev libmysqlclient-dev libxslt-dev \
                libsqlite3-dev libmagickwand-dev imagemagick \
-			   python apt-utils
+							 python apt-utils curl
 
 # Install node
-ENV NODEJS_DOWNLOAD_SHA256 5b8a55d829d951d2a5ccefd4ffe4f9154673ebc621fd6c676bea09bba95cf96b
-ADD https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.gz /tmp/
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
-RUN \
-  cd /tmp && \
-  echo "$NODEJS_DOWNLOAD_SHA256 *node-v10.14.2.tar.gz" | sha256sum -c - && \
-  tar xvzf node-v10.14.2.tar.gz && \
-  rm -f node-v10.14.2.tar.gz && \
-  cd node-v* && \
-  ./configure && \
-  make && \
-  make install && \
-  cd /tmp && \
-  rm -rf /tmp/node-v* && \
-  echo -e '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
+RUN apt install nodejs
 
 RUN npm install -g yarn
 

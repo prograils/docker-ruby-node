@@ -22,21 +22,21 @@ describe 'Dockerfile' do
   end
 
   it 'ubuntu' do
-    expect(os_version).to include('Ubuntu 16.04')
+    expect(os_version).to include('Ubuntu 18.04')
   end
 
-  %w(git-core).each do |p|
+  %w(libpq-dev imagemagick git).each do |p|
     it "installs package #{p}" do
       expect(package(p)).to be_installed
     end
   end
 
   describe command('ruby -v') do
-    its(:stdout) { should match(/2\.5\.1/) }
+    its(:stdout) { should match(/2\.5\.3/) }
   end
 
   describe command('node -v') do
-    its(:stdout) { should match(/6\.10\.1/) }
+    its(:stdout) { should match(/10\./) }
   end
 
   def os_version
