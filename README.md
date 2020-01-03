@@ -1,7 +1,7 @@
 # prograils/ruby-node:latest
 
 Starting point for running Rails specs - includes lastest stable ruby and
-node 6.10.1
+node 10.x
 
 ## What's inside
 
@@ -23,11 +23,11 @@ $ docker run -t -i prograils/ruby-node
 ```
 
 ### Testing
+
 ```
 $ bundle exec rspec
 ```
 
-
 ## References
 
-* [Test Drive Your Dockerfiles with RSpec and ServerSpec](https://robots.thoughtbot.com/tdd-your-dockerfiles-with-rspec-and-serverspec)
+- [Test Drive Your Dockerfiles with RSpec and ServerSpec](https://robots.thoughtbot.com/tdd-your-dockerfiles-with-rspec-and-serverspec)
