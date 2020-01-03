@@ -17,21 +17,21 @@ RUN apt install nodejs
 
 RUN npm install -g yarn
 
-ENV RUBY_DOWNLOAD_SHA256 66976b716ecc1fd34f9b7c3c2b07bbd37631815377a2e3e85a5b194cfdcbed7d
-ADD https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 8c99aa93b5e2f1bc8437d1bbbefd27b13e7694025331f77245d0c068ef1f8cbe
+ADD https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.6.5.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-2.6.5.tar.gz && \
-  cd ruby-2.6.5 && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.7.0.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-2.7.0.tar.gz && \
+  cd ruby-2.7.0 && \
   ./configure && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-2.6.5 && \
-  rm -f ruby-2.6.5.tar.gz
+  rm -rf ruby-2.7.0 && \
+  rm -f ruby-2.7.0.tar.gz
 
 RUN gem install bundler
 
