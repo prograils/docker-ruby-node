@@ -11,9 +11,9 @@ RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
   python apt-utils curl
 
 # Install node
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
-RUN apt install nodejs
+RUN apt-get -y install nodejs
 
 RUN npm install -g yarn
 

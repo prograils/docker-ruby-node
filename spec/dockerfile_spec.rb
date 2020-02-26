@@ -36,7 +36,7 @@ describe 'Dockerfile' do
   end
 
   describe command('node -v') do
-    its(:stdout) { should match(/10\./) }
+    its(:stdout) { should match(/v12\./) }
   end
 
   def os_version
