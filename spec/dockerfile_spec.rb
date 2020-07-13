@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'serverspec'
 require 'docker'
 
@@ -32,7 +33,7 @@ describe 'Dockerfile' do
   end
 
   describe command('ruby -v') do
-    its(:stdout) { should match(/2\.7\.0/) }
+    its(:stdout) { should match(/2\.7\.1/) }
   end
 
   describe command('node -v') do
