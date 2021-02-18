@@ -17,21 +17,21 @@ RUN apt install nodejs
 
 RUN npm install -g yarn
 
-ENV RUBY_DOWNLOAD_SHA256 d418483bdd0000576c1370571121a6eb24582116db0b7bb2005e90e250eae418
-ADD https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 6e5706d0d4ee4e1e2f883db9d768586b4d06567debea353c796ec45e8321c3d4
+ADD https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.2.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.7.1.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-2.7.1.tar.gz && \
-  cd ruby-2.7.1 && \
-  ./configure && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-2.7.2.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-2.7.2.tar.gz && \
+  cd ruby-2.7.2 && \
+  ./configure --enable-shared && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-2.7.1 && \
-  rm -f ruby-2.7.1.tar.gz
+  rm -rf ruby-2.7.2 && \
+  rm -f ruby-2.7.2.tar.gz
 
 RUN gem install bundler
 
