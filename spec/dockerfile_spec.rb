@@ -33,7 +33,7 @@ describe 'Dockerfile' do
   end
 
   describe command('ruby -v') do
-    its(:stdout) { should match(/3\.0\.0/) }
+    its(:stdout) { should match(/3\.0\.1/) }
   end
 
   describe command('node -v') do

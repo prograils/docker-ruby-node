@@ -17,21 +17,21 @@ RUN apt install nodejs
 
 RUN npm install -g yarn
 
-ENV RUBY_DOWNLOAD_SHA256 a13ed141a1c18eb967aac1e33f4d6ad5f21be1ac543c344e0d6feeee54af8e28
-ADD https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.gz /tmp/
+ENV RUBY_DOWNLOAD_SHA256 369825db2199f6aeef16b408df6a04ebaddb664fb9af0ec8c686b0ce7ab77727
+ADD https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.gz /tmp/
 
 # Install ruby
 RUN \
   cd /tmp && \
-  echo "$RUBY_DOWNLOAD_SHA256 *ruby-3.0.0.tar.gz" | sha256sum -c - && \
-  tar -xzf ruby-3.0.0.tar.gz && \
-  cd ruby-3.0.0 && \
+  echo "$RUBY_DOWNLOAD_SHA256 *ruby-3.0.1.tar.gz" | sha256sum -c - && \
+  tar -xzf ruby-3.0.1.tar.gz && \
+  cd ruby-3.0.1 && \
     ./configure --enable-shared && \
   make && \
   make install && \
   cd .. && \
-  rm -rf ruby-3.0.0 && \
-  rm -f ruby-3.0.0.tar.gz
+  rm -rf ruby-3.0.1 && \
+  rm -f ruby-3.0.1.tar.gz
 
 RUN gem install bundler
 
