@@ -33,11 +33,11 @@ describe 'Dockerfile' do
   end
 
   describe command('ruby -v') do
-    its(:stdout) { should match(/3\.0\.1/) }
+    its(:stdout) { should match(/3\.0\.2/) }
   end
 
   describe command('node -v') do
-    its(:stdout) { should match(/10\./) }
+    its(:stdout) { should match(/12\./) }
   end
 
   def os_version

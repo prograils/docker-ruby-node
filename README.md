@@ -1,7 +1,7 @@
 # prograils/ruby-node:latest
 
 Starting point for running Rails specs - includes lastest stable ruby and
-node 10.x
+node 12.x
 
 ## What's inside
 
