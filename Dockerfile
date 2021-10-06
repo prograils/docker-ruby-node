@@ -8,7 +8,7 @@ RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
   libreadline6-dev libyaml-dev git \
   libcurl4-openssl-dev libpq-dev libmysqlclient-dev libxslt-dev \
   libsqlite3-dev libmagickwand-dev imagemagick \
-  python apt-utils curl
+  python apt-utils curl ca-certificates
 
 # Install node
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
